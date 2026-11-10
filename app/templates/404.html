@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}404 — Access denied · {{ c.profile.name }}{% endblock %}
+{% block body %}
+<main id="main" class="e404">
+  <p class="mono red">// ERROR 404</p>
+  <h1 class="name glitch" data-text="TARGET NOT FOUND">TARGET NOT FOUND</h1>
+  <p class="prompt">GET <span class="p-path">{{ path }}</span> → <span class="red">no such host in scope</span></p>
+  <p>Nice recon attempt. But there's nothing here.</p>
+  <a class="btn btn--red" href="/">Return to base</a>
+</main>
+{% endblock %}

@@ -1,0 +1,123 @@
+# ─────────────────────────────────────────────────────────────
+#  OCTGI RISTYA PERDANA — site content
+#  Edit this file to update the website. No code changes needed.
+#  After editing: restart the service  (./run.sh restart)
+# ─────────────────────────────────────────────────────────────
+
+site:
+  url: "https://octgi.kyora.id"          # TODO: ganti dengan domain kamu
+  title: "Octgi Ristya Perdana — Cyber Threat Intelligence & AI"
+  description: "Ogi — 10+ years in cybersecurity. Cyber Threat Intelligence, red teaming and AI security. Think like an attacker."
+  og_image: "/static/img/og.jpg"
+  security_contact: "https://www.instagram.com/octgiristya/"   # dipakai di /.well-known/security.txt (ganti ke email kalau sudah ada)
+
+profile:
+  name: "Octgi Ristya Perdana"
+  nickname: "Ogi"
+  handle: "octgiristya"
+  photo: "/static/img/ogi.webp"
+  photo_fallback: "/static/img/ogi.jpg"
+  role: "Cyber Threat Intelligence Analyst"
+  tagline: "Think like an attacker."
+  sub_tagline: "Cybersecurity & AI, dijelasin tanpa ribet."
+  location: "Indonesia"
+  status: "AVAILABLE FOR SPEAKING · TRAINING · COLLABORATION"
+  stats:
+    - { value: 10, suffix: "+", label: "Years in cybersecurity" }
+    - { value: 27, suffix: "",  label: "LinkedIn recommendations" }
+    - { value: 6,  suffix: "+", label: "Security & AI certifications" }
+    - { value: 4,  suffix: "×", label: "Innovation awards" }
+
+# Link hub — urutan = urutan tampil. `primary: true` = tombol besar merah.
+links:
+  - { label: "Work with me", sub: "Speaking · Training · Collab", url: "https://ig.me/m/octgiristya", icon: "bolt", primary: true }
+  - { label: "Instagram", sub: "@octgiristya", url: "https://www.instagram.com/octgiristya/", icon: "instagram" }
+  - { label: "TikTok", sub: "@octgiristya", url: "https://www.tiktok.com/@octgiristya", icon: "tiktok" }
+  - { label: "YouTube", sub: "@octgiristya", url: "https://www.youtube.com/@octgiristya", icon: "youtube" }
+  - { label: "LinkedIn", sub: "in/octgiristya", url: "https://www.linkedin.com/in/octgiristya/", icon: "linkedin" }
+  - { label: "X", sub: "@octgiristya", url: "https://x.com/octgiristya", icon: "x" }
+  - { label: "Threads", sub: "@octgiristya", url: "https://www.threads.net/@octgiristya", icon: "threads" }
+  - { label: "GitHub", sub: "octgiristya", url: "https://github.com/octgiristya", icon: "github" }
+
+intro_video:
+  src: "/static/video/intro.mp4"
+  poster: "/static/img/intro-poster.webp"
+  caption: "30-second briefing. Subject: Ogi."
+
+about:
+  lead: "I think like an attacker — so organizations, and everyday people, don't have to learn the hard way."
+  paragraphs:
+    - "For 10+ years I've worked on both sides of security: penetration testing, digital forensics, SOC operations, and today Cyber Threat Intelligence in Indonesia's banking sector — hunting phishing sites, fraud networks, malicious apps and data leaks before they reach people."
+    - "The other half of my work is AI. I build Agentic AI and LLM-powered systems that automate threat intelligence, brand protection and incident response — turning hours of manual analysis into minutes."
+    - "Outside my day job I break cybersecurity and AI down for everyone: how hackers and scammers really think, and how AI can genuinely help you."
+
+expertise:
+  - { code: "CTI", title: "Cyber Threat Intelligence", text: "Phishing intelligence, fraud network mapping, dark web monitoring and digital risk protection." }
+  - { code: "RED", title: "Red Teaming & Social Engineering", text: "Attacker psychology over tools. Pentesting, adversary simulation and human-layer attacks." }
+  - { code: "AI", title: "AI Security & Automation", text: "Agentic AI, LLM-augmented SOC/SOAR and ML pipelines that detect and respond at machine speed." }
+  - { code: "DFIR", title: "Digital Forensics & IR", text: "Evidence handling, incident investigation and root-cause analysis. CHFI certified." }
+  - { code: "SEC-DEV", title: "DevSecOps", text: "Secure web and mobile engineering, taught across multiple universities." }
+  - { code: "EDU", title: "Teaching & Mentoring", text: "University lecturer and bootcamp mentor in cybersecurity, programming and AI." }
+
+projects:
+  - { tag: "AGENTIC AI", title: "Autonomous Threat Intelligence & Brand Protection", text: "Agentic AI that crawls the open web and social media for phishing sites, malicious APKs and leaked data — then escalates and drives takedowns automatically.", status: "ACTIVE" }
+  - { tag: "LLM · SOAR", title: "AI-Augmented Incident Response", text: "LLMs integrated into SOAR playbooks to move incident response from rigid rules to context-aware, autonomous triage.", status: "ACTIVE" }
+  - { tag: "DARK WEB", title: "Dark Web Intelligence Crawler", text: "Automated dark web surveillance matched to organizational keywords, unified into a single threat intelligence platform.", status: "SHIPPED" }
+  - { tag: "IDENTITY", title: "Credential Leak Auto-Remediation", text: "Aggregates leaked customer and employee credentials from multiple sources and remediates them before threat actors can use them.", status: "SHIPPED" }
+  - { tag: "FRAUD", title: "Financial Account Abuse Hunter", text: "Detects bank accounts used by illegal gambling and account-trading operations on social media, then disables them.", status: "SHIPPED" }
+  - { tag: "RESEARCH", title: "Face Recognition for Home Security", text: "Published research comparing face-recognition accuracy under varying lighting using Kinect imagery (EIConCIT 2021).", status: "PUBLISHED" }
+
+experience:
+  # Nama perusahaan untuk posisi sekarang sengaja dibuat umum (independen). Ubah kalau mau.
+  - { period: "2022 — Now", role: "Cyber Intelligence Analyst · AI & Automation", org: "National banking sector", text: "Blue and red team in one seat — protecting one of Indonesia's largest banks with threat intelligence and AI automation." }
+  - { period: "2025 — 2026", role: "Cyber Security Mentor", org: "Dibimbing", text: "Industry-validated mentoring in security operations and threat intelligence." }
+  - { period: "2024", role: "Associate Lecturer · OOP", org: "Universitas Bakrie", text: "Programming languages and object-oriented programming for undergraduates." }
+  - { period: "2024", role: "Data Science & AI Mentor", org: "StartupCampus.id", text: "Batch mentor guiding students through ML and AI projects." }
+  - { period: "2021 — 2024", role: "DevSecOps Lecturer (Praktisi Mengajar)", org: "Kemendikbud · Jakarta State Univ. · Jakarta Global Univ.", text: "Secure application development across multiple universities." }
+  - { period: "2020 — 2022", role: "IT Development Mentor", org: "Kampus Merdeka", text: "Mentored the development of a web-based digital HR system." }
+  - { period: "2019 — 2022", role: "Digital Transformation Leader", org: "PT Barata Indonesia (Persero)", text: "Product owner for an IoT system monitoring production machine performance." }   # TODO: cek tahun selesai
+  - { period: "2016 — 2017", role: "System Security Analyst", org: "PLN (project)", text: "Vulnerability assessment and penetration testing." }
+  - { period: "2016 — 2017", role: "Lab Admin & Assistant Lecturer", org: "Institut Teknologi Sepuluh Nopember", text: "Taught cybersecurity, digital forensics, AI and programming." }
+
+awards:
+  - "BRI Excellence Award 2026"
+  - "CTF Champion — BSSN"
+  - "1st Place — Hackathon Hack-o-Train BRI"
+  - "1st Place — Mini Gemastik, Cyber Security"
+  - "1st Place — Hacking Competition, Information Systems ITS"
+  - "Top 5 — Embrio Innovation Challenge BRI 2024"
+  - "1st Place — Company Innovation Competition PT Barata Indonesia 2019"
+
+certifications:
+  - "CEH"
+  - "CHFI — EC-Council"
+  - "CompTIA Security+"
+  - "Certified Blockchain Professional — EC-Council"
+  - "Certified AI Engineer — Huawei"
+  - "Certified Digital Forensic Examiner — AccessData"
+  - "Certified Secure Computer User — EC-Council"
+  - "ITIL v4 Foundation"
+
+education:
+  - { degree: "M.Kom, Information Systems", school: "Institut Teknologi Sepuluh Nopember", period: "2017 — 2021", note: "Facial-recognition AI for digital surveillance" }
+  - { degree: "S.Kom, Information Systems", school: "Institut Teknologi Sepuluh Nopember", period: "2013 — 2017", note: "IoT environmental monitoring" }
+
+publication:
+  title: "Accuracy Comparison of Home Security Face Recognition Model in Several Lighting Conditions Using Kinect-Produced Images"
+  venue: "EIConCIT 2021 · IEEE"
+  url: "https://www.linkedin.com/in/octgiristya/details/publications/"
+
+classified:
+  enabled: true
+  title: "Something is being built."
+  text: "A cybersecurity platform is in the works. Get notified when it's declassified."
+  cta_label: "Notify me"
+  cta_url: "https://www.instagram.com/octgiristya/"
+
+contact:
+  headline: "Got a threat to talk about?"
+  text: "Speaking, corporate training, research collaboration or content partnership — let's talk."
+  buttons:
+    - { label: "DM on Instagram", url: "https://www.instagram.com/octgiristya/" }
+    - { label: "Connect on LinkedIn", url: "https://www.linkedin.com/in/octgiristya/" }
+    # - { label: "Email", url: "mailto:hello@domainkamu.com" }   # aktifkan kalau sudah punya email kolaborasi

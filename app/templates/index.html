@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% from "_icons.html" import icon %}
+{% block body %}
+<div class="scroll-prog" aria-hidden="true"><i data-prog></i></div>
+<aside class="sec-ind" aria-hidden="true"><span data-ind-idx>00</span><i></i><span data-ind-name>INDEX</span></aside>
+<div class="cursor" aria-hidden="true" data-cursor><span class="cur-dot"></span><span class="cur-ring"><i></i><i></i><i></i><i></i><b data-cursor-label></b></span></div>
+<canvas class="cursor-trail" aria-hidden="true" data-trail></canvas>
+<header class="topbar" data-topbar>
+  <a class="brand" href="#top" aria-label="Home">
+    <span class="brand-mark">OGI</span><span class="brand-slash">//</span><span class="brand-sub">{{ c.profile.handle }}</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#work">Work</a>
+    <a href="#record">Record</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="term-btn" type="button" data-term-open aria-label="Open terminal (press ` )">
+    {{ icon("terminal") }}<span>terminal</span><kbd>`</kbd>
+  </button>
+</header>
+
+<main id="main">
+  <!-- ═════════════ HERO / LINK HUB ═════════════ -->
+  <section class="hero" id="top" data-sec="INDEX">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hud-frame" aria-hidden="true">
+      <span class="hud-c tl"></span><span class="hud-c tr"></span><span class="hud-c bl"></span><span class="hud-c br"></span>
+      <span class="hud-rec"><i></i>REC</span>
+      <span class="hud-clock" data-clock>00:00:00</span>
+      <span class="hud-id">ID//OCTGI.R.P</span>
+      <span class="hud-geo">SECTOR: INDONESIA · CHANNEL OPEN</span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-id">
+        <figure class="avatar" data-tilt>
+          <picture>
+            <source srcset="{{ c.profile.photo }}" type="image/webp">
+            <img src="{{ c.profile.photo_fallback }}" alt="Portrait of {{ c.profile.name }}" width="800" height="800" fetchpriority="high">
+          </picture>
+          <span class="lock-tag">TARGET LOCKED</span>
+          <span class="lock-box" aria-hidden="true"></span>
+        </figure>
+
+        <p class="prompt"><span class="p-user">root@{{ c.profile.handle }}</span>:<span class="p-path">~</span># <span data-type="whoami">whoami</span><span class="caret" aria-hidden="true"></span></p>
+        <h1 class="name glitch" data-text="{{ c.profile.name }}">{{ c.profile.name }}</h1>
+        <p class="aka">a.k.a. <strong>{{ c.profile.nickname }}</strong> · {{ c.profile.role }}</p>
+        <p class="tagline"><span class="bar" aria-hidden="true"></span>{{ c.profile.tagline }}</p>
+        <p class="sub">{{ c.profile.sub_tagline }}</p>
+        <p class="status"><span class="dot" aria-hidden="true"></span>{{ c.profile.status }}</p>
+      </div>
+
+      <nav class="links" aria-label="Links">
+        {% for l in c.links %}
+        <a class="link{% if l.primary %} link--primary{% endif %}" href="{{ l.url }}" target="_blank" rel="noopener noreferrer" data-reveal>
+          <span class="link-ico">{{ icon(l.icon) }}</span>
+          <span class="link-txt"><b>{{ l.label }}</b><small>{{ l.sub }}</small></span>
+          <span class="link-go">{{ icon("arrow") }}</span>
+        </a>
+        {% endfor %}
+      </nav>
+    </div>
+
+    <ul class="stats" aria-label="Key numbers">
+      {% for s in c.profile.stats %}
+      <li data-reveal><b><span data-count="{{ s.value }}">{{ s.value }}</span>{{ s.suffix }}</b><span>{{ s.label }}</span></li>
+      {% endfor %}
+    </ul>
+    <a class="scroll-cue" href="#briefing" aria-label="Scroll to dossier"><span>DOSSIER</span><i></i></a>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track" data-marquee>
+    <span>THINK LIKE AN ATTACKER</span><i>//</i><span>CYBER THREAT INTELLIGENCE</span><i>//</i><span>RED TEAMING</span><i>//</i><span>AI SECURITY</span><i>//</i><span>DIGITAL FORENSICS</span><i>//</i>
+  </div></div>
+
+  <!-- ═════════════ BRIEFING VIDEO ═════════════ -->
+  <section class="sec briefing" id="briefing" data-sec="BRIEFING">
+    <div class="sec-head" data-reveal>
+      <span class="sec-idx">01</span><h2>Briefing</h2><span class="sec-rule"></span>
+    </div>
+    <div class="briefing-grid">
+      <div class="video-shell" data-reveal>
+        <video src="{{ c.intro_video.src }}" poster="{{ c.intro_video.poster }}" playsinline preload="none" controls></video>
+        <span class="hud-c tl"></span><span class="hud-c tr"></span><span class="hud-c bl"></span><span class="hud-c br"></span>
+      </div>
+      <div class="briefing-copy" data-reveal>
+        <p class="mono red">// {{ c.intro_video.caption }}</p>
+        <p class="lead" id="about">{{ c.about.lead }}</p>
+        {% for p in c.about.paragraphs %}<p>{{ p }}</p>{% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════ EXPERTISE ═════════════ -->
+  <section class="sec" id="expertise" data-sec="EXPERTISE">
+    <div class="sec-head" data-reveal>
+      <span class="sec-idx">02</span><h2>Expertise</h2><span class="sec-rule"></span>
+    </div>
+    <div class="cards">
+      {% for e in c.expertise %}
+      <article class="card" data-reveal data-spot>
+        <span class="card-code">[{{ e.code }}]</span>
+        <h3>{{ e.title }}</h3>
+        <p>{{ e.text }}</p>
+        <span class="card-idx">{{ "%02d"|format(loop.index) }}</span>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ═════════════ WORK ═════════════ -->
+  <section class="sec" id="work" data-sec="OPERATIONS">
+    <div class="sec-head" data-reveal>
+      <span class="sec-idx">03</span><h2>Selected operations</h2><span class="sec-rule"></span>
+    </div>
+    <div class="ops">
+      {% for p in c.projects %}
+      <article class="op" data-reveal data-spot>
+        <header><span class="op-tag">{{ p.tag }}</span><span class="op-status op-status--{{ p.status|lower }}">{{ p.status }}</span></header>
+        <h3>{{ p.title }}</h3>
+        <p>{{ p.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- ═════════════ EXPERIENCE ═════════════ -->
+  <section class="sec" id="experience" data-sec="FIELD LOG">
+    <div class="sec-head" data-reveal>
+      <span class="sec-idx">04</span><h2>Field log</h2><span class="sec-rule"></span>
+    </div>
+    <ol class="timeline">
+      {% for x in c.experience %}
+      <li data-reveal>
+        <span class="tl-period">{{ x.period }}</span>
+        <div class="tl-body">
+          <h3>{{ x.role }}</h3>
+          <p class="tl-org">{{ x.org }}</p>
+          <p>{{ x.text }}</p>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+
+  <!-- ═════════════ RECORD ═════════════ -->
+  <section class="sec" id="record" data-sec="TRACK RECORD">
+    <div class="sec-head" data-reveal>
+      <span class="sec-idx">05</span><h2>Track record</h2><span class="sec-rule"></span>
+    </div>
+    <div class="record">
+      <div class="panel" data-reveal>
+        <h3 class="panel-t">// Recognition</h3>
+        <ul class="awards">{% for a in c.awards %}<li>{{ a }}</li>{% endfor %}</ul>
+      </div>
+      <div class="panel" data-reveal>
+        <h3 class="panel-t">// Credentials</h3>
+        <ul class="chips">{% for x in c.certifications %}<li>{{ x }}</li>{% endfor %}</ul>
+        <h3 class="panel-t">// Education</h3>
+        <ul class="edu">
+          {% for e in c.education %}
+          <li><b>{{ e.degree }}</b><span>{{ e.school }} · {{ e.period }}</span><small>{{ e.note }}</small></li>
+          {% endfor %}
+        </ul>
+        <h3 class="panel-t">// Publication</h3>
+        <a class="pub" href="{{ c.publication.url }}" target="_blank" rel="noopener noreferrer">
+          <span>{{ c.publication.title }}</span><small>{{ c.publication.venue }}</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {% if c.classified.enabled %}
+  <!-- ═════════════ CLASSIFIED ═════════════ -->
+  <section class="sec classified" data-reveal>
+    <div class="classified-inner">
+      <p class="stamp">CLASSIFIED</p>
+      <h2>{{ c.classified.title }}</h2>
+      <p>{{ c.classified.text }}</p>
+      <p class="redact" aria-hidden="true"><span></span><span></span><span></span></p>
+      <a class="btn btn--ghost" href="{{ c.classified.cta_url }}" target="_blank" rel="noopener noreferrer">{{ c.classified.cta_label }} {{ icon("arrow") }}</a>
+    </div>
+  </section>
+  {% endif %}
+
+  <div class="marquee marquee--rev" aria-hidden="true"><div class="marquee-track" data-marquee data-dir="-1">
+    <span>OPEN CHANNEL</span><i>//</i><span>SPEAKING</span><i>//</i><span>TRAINING</span><i>//</i><span>COLLABORATION</span><i>//</i><span>CYBER × AI</span><i>//</i>
+  </div></div>
+
+  <!-- ═════════════ CONTACT ═════════════ -->
+  <section class="sec contact" id="contact" data-sec="CONTACT" data-reveal>
+    <p class="mono red">// OPEN CHANNEL</p>
+    <h2 class="contact-h">{{ c.contact.headline }}</h2>
+    <p>{{ c.contact.text }}</p>
+    <div class="btns">
+      {% for b in c.contact.buttons %}
+      <a class="btn{% if loop.first %} btn--red{% else %} btn--ghost{% endif %}" href="{{ b.url }}" target="_blank" rel="noopener noreferrer">{{ b.label }} {{ icon("arrow") }}</a>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© {{ year }} {{ c.profile.name }}</span>
+  <span class="foot-mid">{{ c.profile.tagline }}</span>
+  <a href="/.well-known/security.txt">security.txt</a>
+</footer>
+
+<!-- ═════════════ TERMINAL (easter egg) ═════════════ -->
+<dialog class="term" data-term aria-label="Terminal">
+  <div class="term-bar">
+    <span class="term-dots"><i></i><i></i><i></i></span>
+    <span>ogi@{{ c.profile.handle }}: ~</span>
+    <button type="button" data-term-close aria-label="Close terminal">×</button>
+  </div>
+  <div class="term-out" data-term-out role="log" aria-live="polite"></div>
+  <form class="term-in" data-term-form autocomplete="off">
+    <label for="term-cmd"><span class="p-user">guest@{{ c.profile.handle }}</span>:~$</label>
+    <input id="term-cmd" name="cmd" spellcheck="false" autocapitalize="off" data-term-input>
+  </form>
+</dialog>
+<script nonce="{{ nonce }}" type="application/json" id="term-data">{{ {
+  "name": c.profile.name, "nick": c.profile.nickname, "role": c.profile.role,
+  "tagline": c.profile.tagline,
+  "links": c.links | map(attribute="label") | list,
+  "urls": c.links | map(attribute="url") | list,
+  "expertise": c.expertise | map(attribute="title") | list,
+  "projects": c.projects | map(attribute="title") | list,
+  "certs": c.certifications
+} | tojson }}</script>
+{% endblock %}
